@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.vivy.vivytask.ui.doctor_detail.DoctorDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lytMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_doctor_detail_background"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".ui.main_page.MainActivity">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/doctor_detail_image_size"
+            android:layout_height="@dimen/doctor_detail_image_size"
+            android:layout_marginTop="15dp"
+            app:content="@{viewModel.photoId}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/DoctorItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@{viewModel.name}"
+
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+
+        <TextView
+            android:id="@+id/txtAddress"
+            style="@style/DoctorItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@{viewModel.address}"
+
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <TextView
+            android:id="@+id/txtRating"
+            style="@style/DoctorItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+
+            android:text="@{@string/rating_title(String.valueOf(viewModel.rating))}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAddress" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

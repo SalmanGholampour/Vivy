@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.vivy.vivytask.ui.doctors_list.ItemDoctorViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lytMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{()-> viewModel.onItemClick()}"
+        tools:context=".ui.main_page.MainActivity">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/doctor_item_image_size"
+            android:layout_height="@dimen/doctor_item_image_size"
+            app:content="@{viewModel.photoId}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/DoctorItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.name}"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imgProfile"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtRating"
+            style="@style/DoctorItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/rating_title(String.valueOf(viewModel.rating))}"
+            app:layout_constraintLeft_toRightOf="@+id/imgProfile"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

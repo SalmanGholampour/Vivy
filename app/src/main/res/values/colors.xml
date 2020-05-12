@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="doctor_item_text">#090104</color>
+    <color name="listHeaderBack">#16C1AF</color>
+    <color name="listHeaderText">#090104</color>
+
+
+    <color name="fragment_doctor_detail_background">#ECECEC</color>
+</resources>
